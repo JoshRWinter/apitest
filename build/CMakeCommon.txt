@@ -3,7 +3,7 @@ set( apitest_BIN_DIR ${apitest_SOURCE_DIR}/bin )
 set( apitest_MEDIA_DIR ${apitest_BIN_DIR}/Media )
 set( apitest_SHADER_DIR ${apitest_BIN_DIR}/Shader )
 
-set( SDL_INCLUDE_DIR "${apitest_SOURCE_DIR}/thirdparty/SDL2-2.0.1/include" )
+#set( SDL_INCLUDE_DIR "${apitest_SOURCE_DIR}/thirdparty/SDL2-2.0.1/include" )
 
 set( apitest_WITH_D3D11 0 )
 
@@ -36,7 +36,7 @@ elseif( APPLE )
     set( CMAKE_SHARED_LINKER_FLAGS "-g" )
     set( CMAKE_MODULE_LINKER_FLAGS "-g" )
 else()
-    set( SDL_LIBRARY_DIR "${CMAKE_BINARY_DIR}/thirdparty/SDL2-2.0.1/" )
+#    set( SDL_LIBRARY_DIR "${CMAKE_BINARY_DIR}/thirdparty/SDL2-2.0.1/" )
 
     if( NOT CMAKE_BUILD_TYPE )
       set( CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build, options are: None Debug Release" FORCE )

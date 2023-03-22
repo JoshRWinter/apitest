@@ -131,7 +131,7 @@ endif( apitest_WITH_D3D11 )
 add_msvc_precompiled_header( "pch.h" "pch.cpp" SRCS )
 
 # Add include directories for third party software (SDL)
-include_directories( "${SDL_INCLUDE_DIR}" )
+#include_directories( "${SDL_INCLUDE_DIR}" )
 
 # Build our executable
 add_executable( apitest ${SRCS} ${HDRS} )
@@ -432,8 +432,8 @@ if( MSVC )
         target_link_libraries( apitest ${SDL_LIBRARY_DIR}/SDL2.lib )
         target_link_libraries( apitest ${SDL_LIBRARY_DIR}/SDL2main.lib )
 else()
-        target_link_libraries( apitest ${SDL_LIBRARY_DIR}/libSDL2.a )
-        target_link_libraries( apitest ${SDL_LIBRARY_DIR}/libSDL2main.a )
+        #target_link_libraries( apitest ${SDL_LIBRARY_DIR}/libSDL2.a )
+        #target_link_libraries( apitest ${SDL_LIBRARY_DIR}/libSDL2main.a )
 endif( MSVC )
 
 
@@ -452,8 +452,11 @@ elseif( UNIX )
         target_link_libraries( apitest GL pthread dl )
 endif( APPLE )
 
+find_package(SDL2 REQUIRED)
+include_directories(apitest ${SDL2_INCLUDE_DIRS})
+target_link_libraries(apitest ${SDL2_LIBRARIES})
 # Don't know why these don't get picked up automatically. Don't care. 
-add_dependencies( apitest SDL2 SDL2main SDL2deployed )
+#add_dependencies( apitest )
 
 # Change the debug executable name
 set_target_properties( apitest PROPERTIES RUNTIME_OUTPUT_NAME_DEBUG apitest_d )

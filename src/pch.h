@@ -24,7 +24,7 @@
 #include "framework/console.h"
 #include "framework/mathlib.h"
 
-#include "SDL.h"
+#include <SDL2/SDL.h>
 #include "framework/dds_helper.h"
 #include "GL/glextensions.h"
 
